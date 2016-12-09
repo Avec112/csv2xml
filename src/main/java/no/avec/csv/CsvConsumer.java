@@ -1,5 +1,8 @@
 package no.avec.csv;
 
+import com.fasterxml.jackson.databind.MappingIterator;
+import com.fasterxml.jackson.dataformat.csv.CsvMapper;
+import com.fasterxml.jackson.dataformat.csv.CsvSchema;
 import lombok.extern.slf4j.Slf4j;
 import no.avec.object.Person;
 import org.apache.commons.io.FileUtils;
@@ -15,8 +18,11 @@ import java.util.List;
  */
 public class CsvConsumer {
 
+    /*
+        With use of StrTokenizer (commons-lang3)
+     */
     public static List<Person> getValues(File file) throws IOException {
-        List<Person> objs = new ArrayList<Person>();
+        List<Person> objs = new ArrayList<>();
         List<String> lines = FileUtils.readLines(file, "UTF-8");
         for(String line:lines) {
             StrTokenizer tokenizer = new StrTokenizer(line, ':', '"');
@@ -32,4 +38,16 @@ public class CsvConsumer {
         }
         return objs;
     }
+
+    /*
+        With use of jackson-dataformat-csv
+     */
+    public static List<Person> getValues2(File file) throws IOException {
+        CsvMapper mapper = new CsvMapper();
+        CsvSchema schema = mapper.schemaFor(Person.class).withColumnSeparator(':');
+        MappingIterator<Person> persons = mapper.readerFor(Person.class).with(schema).readValues(file);
+//        System.out.println(persons);
+        return persons.readAll();
+    }
+
 }

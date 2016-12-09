@@ -18,7 +18,18 @@ public class CsvConsumerTest {
     public void getValues() throws Exception {
 
         File file = new File(this.getClass().getResource("/persons.csv").getFile());
-        List<Person> values = CsvConsumer.getValues(file);
+        List<Person> values = CsvConsumer.getValues(file); // StrTokenizer (apache commons-lang3)
+        assertEquals(values.size(), 2);
+        assertEquals(values.get(0).getId(), "1");
+        assertEquals(values.get(1).getId(), "2");
+
+    }
+
+    @Test
+    public void getValues2() throws Exception {
+
+        File file = new File(this.getClass().getResource("/persons.csv").getFile());
+        List<Person> values = CsvConsumer.getValues2(file); // jackson-dataformat-csv
         assertEquals(values.size(), 2);
         assertEquals(values.get(0).getId(), "1");
         assertEquals(values.get(1).getId(), "2");
