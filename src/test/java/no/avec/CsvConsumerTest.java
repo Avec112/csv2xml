@@ -14,7 +14,7 @@ import static org.junit.Assert.assertEquals;
  */
 public class CsvConsumerTest {
     @Test
-    public void getValues() throws Exception {
+    public void getValuesByStrTokenizer() throws Exception {
 
         File file = new File(this.getClass().getResource("/persons.csv").getFile());
         List<Person> values = CsvConsumer.getValues(file); // StrTokenizer (apache commons-lang3)
@@ -25,7 +25,7 @@ public class CsvConsumerTest {
     }
 
     @Test
-    public void getValues2() throws Exception {
+    public void getValuesByJacksonDataformatCsv() throws Exception {
 
         File file = new File(this.getClass().getResource("/persons.csv").getFile());
         List<Person> values = CsvConsumer.getValues2(file); // jackson-dataformat-csv
