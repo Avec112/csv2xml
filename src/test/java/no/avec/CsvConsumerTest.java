@@ -2,13 +2,12 @@ package no.avec;
 
 import no.avec.csv.CsvConsumer;
 import no.avec.object.Person;
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.File;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by avec on 08/12/2016.
