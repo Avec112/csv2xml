@@ -39,8 +39,9 @@ public class XmlProducerTest {
     public void setUp() throws Exception {
         try {
             xml = new File(XML_FILE);
-            if(xml.exists())
+            if (xml.exists()) {
                 FileUtils.forceDelete(xml);
+            }
         } catch(Exception e) {
             // do nothing
         }
