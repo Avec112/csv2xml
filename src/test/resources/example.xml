@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TMessage releaseVersion="str1234">
+    <from>str1234</from>
+    <to>str1234</to>
+    <sent>str1234</sent>
+    <test>str1234</test>
+    <AddTRequest attr1="str1234" attr2="str1234" attr3="str1234">
+        <value1>str1234</value1>
+        <value2>str1234</value2>
+        <value3>str1234</value3>
+    </AddTRequest>
+    <UpdateTRequest attr1="str1234" attr2="str1234" attr3="str1234">
+        <value1>str1234</value1>
+        <value2>str1234</value2>
+        <value3>str1234</value3>
+    </UpdateTRequest>
+    <RemoveTRequest attr1="str1234" attr2="str1234" attr3="str1234">
+        <value1>str1234</value1>
+        <value2>str1234</value2>
+        <value3>str1234</value3>
+    </RemoveTRequest>
+    <TQuery attr1="str1234" attr2="str1234" attr3="str1234">
+        <value1>str1234</value1>
+        <value2>str1234</value2>
+        <value3>str1234</value3>
+    </TQuery>
+</TMessage>

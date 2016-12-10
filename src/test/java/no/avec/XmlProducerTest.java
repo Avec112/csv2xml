@@ -30,7 +30,7 @@ import static junit.framework.TestCase.assertTrue;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class XmlProducerTest {
 
-    private static final String XML_FILE = "temp.xml"; // workdir
+    private static final String XML_FILE = "person.xml"; // workdir
     private static final String SCHEMA_FILE = "persons.xsd"; // testresource
     private File xml;
 
@@ -48,7 +48,7 @@ public class XmlProducerTest {
 
     @After
     public void tearDown() throws Exception {
-        xml.delete();
+//        xml.delete();
     }
 
     @Test // run before validation

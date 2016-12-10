@@ -1,0 +1,29 @@
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="TMessage">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="from" type="xs:string"/>
+                <xs:element name="to" type="xs:string"/>
+                <xs:element name="sent" type="xs:string"/>
+                <xs:element name="test" type="xs:string" minOccurs="0"/>
+                <xs:element name="AddTRequest" type="TRequest" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element name="UpdateTRequest" type="TRequest" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element name="RemoveTRequest" type="TRequest" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element name="TQuery" type="TRequest" minOccurs="0" maxOccurs="unbounded"/>
+            </xs:sequence>
+            <xs:attribute name="releaseVersion" type="xs:string" use="required"/>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="TRequest">
+        <xs:sequence>
+            <xs:element name="value1" type="xs:string"/>
+            <xs:element name="value2" type="xs:string"/>
+            <xs:element name="value3" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="attr1" type="xs:string" use="required"/>
+        <xs:attribute name="attr2" type="xs:string" use="required"/>
+        <xs:attribute name="attr3" type="xs:string" use="required"/>
+    </xs:complexType>
+</xs:schema>
