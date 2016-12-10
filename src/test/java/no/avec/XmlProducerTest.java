@@ -56,9 +56,15 @@ public class XmlProducerTest {
     @Test // run before validation
     public void marshal() throws Exception {
         List<Person> objs = Arrays.asList(getPerson("1"), getPerson("2"));
-        XmlProducer.marshal(objs, "Persons", new File(XML_FILE));
+        XmlProducer.marshal(objs, "Persons", new File(getTestResourcePath() + XML_FILE));
         xmlValidation();
 
+    }
+
+    @Test
+    public void exampleValidation() {
+        boolean valid = validate("example.xml", "example.xsd");
+        assertTrue("example.xml is not valid", valid);
     }
 
     private void xmlValidation() {
@@ -75,7 +81,7 @@ public class XmlProducerTest {
             Schema schema = schemaFactory.newSchema(new File(getResource(schemaFile)));
 
             Validator validator = schema.newValidator();
-            validator.validate(new StreamSource(new File(xmlFile)));
+            validator.validate(new StreamSource(new File(getResource(xmlFile))));
             return true;
         } catch (SAXException | IOException e) {
             e.printStackTrace();
@@ -88,6 +94,12 @@ public class XmlProducerTest {
         Objects.requireNonNull(resource);
 
         return resource.getFile();
+    }
+
+    private String getTestResourcePath() throws FileNotFoundException {
+        URL resource = getClass().getClassLoader().getResource(".");
+
+        return resource.getPath();
     }
 
 
