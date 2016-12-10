@@ -2,6 +2,7 @@ package no.avec;
 
 import no.avec.object.Person;
 import no.avec.xml.XmlProducer;
+import org.apache.commons.io.FileUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
@@ -39,7 +40,7 @@ public class XmlProducerTest {
         try {
             xml = new File(XML_FILE);
             if(xml.exists())
-                xml.delete();
+                FileUtils.forceDelete(xml);
         } catch(Exception e) {
             // do nothing
         }
